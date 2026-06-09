@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base', 'nhan_su'],
 
     # always loaded
     'data': [
@@ -28,6 +28,7 @@
         'views/van_ban_den.xml',
         'views/van_ban_di.xml',
         'views/loai_van_ban.xml',
+        'views/nhan_vien.xml',
         'views/menu.xml',
     ],
     # only loaded in demonstration mode

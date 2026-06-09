@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Nhan Vien Form View to add Smart Button and Notebook Page -->
+        <record id="view_nhan_vien_form_inherit_van_ban" model="ir.ui.view">
+            <field name="name">nhan_vien.form.inherit.van.ban</field>
+            <field name="model">nhan_vien</field>
+            <field name="inherit_id" ref="nhan_su.view_nhan_vien_form"/>
+            <field name="arch" type="xml">
+                <!-- Add Smart Button box at the top of sheet -->
+                <xpath expr="//sheet/*[1]" position="before">
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_open_van_ban_den" 
+                                type="object" 
+                                class="oe_stat_button" 
+                                icon="fa-file-text-o">
+                            <field name="van_ban_den_count" widget="statinfo" string="Văn bản đến"/>
+                        </button>
+                    </div>
+                </xpath>
+                
+                <!-- Add Notebook Page for related documents -->
+                <xpath expr="//notebook" position="inside">
+                    <page string="Văn bản phụ trách">
+                        <field name="van_ban_den_ids">
+                            <tree>
+                                <field name="ten_van_ban"/>
+                                <field name="so_van_ban_den"/>
+                                <field name="so_hieu_van_ban"/>
+                                <field name="noi_gui_den"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

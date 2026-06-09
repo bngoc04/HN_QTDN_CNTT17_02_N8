@@ -13,3 +13,17 @@ class VanBanDen(models.Model):
     so_hieu_van_ban = fields.Char("Số hiệu văn bản", required=True)
     noi_gui_den = fields.Char("Nơi gửi đến")
 
+    nhan_vien_xu_ly_id = fields.Many2one(
+        "nhan_vien",
+        string="Nhân viên xử lý",
+        required=True
+    )
+    nhan_vien_ky_id = fields.Many2one(
+        "nhan_vien",
+        string="Người ký"
+    )
+    nhan_vien_nhan_id = fields.Many2one(
+        "nhan_vien",
+        string="Người nhận/phối hợp"
+    )
+
