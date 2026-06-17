@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Tree View -->
+        <record id="view_hr_khen_thuong_ky_luat_tree" model="ir.ui.view">
+            <field name="name">hr.khen.thuong.ky_luat.tree</field>
+            <field name="model">hr_khen_thuong_ky_luat</field>
+            <field name="arch" type="xml">
+                <tree string="Khen thưởng &amp; Kỷ luật">
+                    <field name="nhan_vien_id"/>
+                    <field name="loai_quyet_dinh"/>
+                    <field name="so_tien" widget="monetary"/>
+                    <field name="ngay_ap_dung"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="view_hr_khen_thuong_ky_luat_form" model="ir.ui.view">
+            <field name="name">hr.khen.thuong.ky_luat.form</field>
+            <field name="model">hr_khen_thuong_ky_luat</field>
+            <field name="arch" type="xml">
+                <form string="Thông tin thưởng phạt">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>Khen thưởng / Kỷ luật</h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="nhan_vien_id"/>
+                                <field name="loai_quyet_dinh"/>
+                            </group>
+                            <group>
+                                <field name="so_tien"/>
+                                <field name="ngay_ap_dung"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Search View -->
+        <record id="view_hr_khen_thuong_ky_luat_search" model="ir.ui.view">
+            <field name="name">hr.khen.thuong.ky_luat.search</field>
+            <field name="model">hr_khen_thuong_ky_luat</field>
+            <field name="arch" type="xml">
+                <search string="Tìm kiếm khen thưởng kỷ luật">
+                    <field name="nhan_vien_id"/>
+                    <filter string="Khen thưởng" name="khen_thuong" domain="[('loai_quyet_dinh', '=', 'khen_thuong')]"/>
+                    <filter string="Kỷ luật" name="ky_luat" domain="[('loai_quyet_dinh', '=', 'ky_luat')]"/>
+                    <group expand="0" string="Gom nhóm">
+                        <filter string="Nhân viên" name="group_by_nhan_vien" context="{'group_by':'nhan_vien_id'}"/>
+                        <filter string="Loại quyết định" name="group_by_loai" context="{'group_by':'loai_quyet_dinh'}"/>
+                        <filter string="Ngày áp dụng" name="group_by_ngay" context="{'group_by':'ngay_ap_dung'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="action_hr_khen_thuong_ky_luat" model="ir.actions.act_window">
+            <field name="name">Khen thưởng &amp; Kỷ luật</field>
+            <field name="res_model">hr_khen_thuong_ky_luat</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_hr_khen_thuong_ky_luat_search"/>
+        </record>
+    </data>
+</odoo>

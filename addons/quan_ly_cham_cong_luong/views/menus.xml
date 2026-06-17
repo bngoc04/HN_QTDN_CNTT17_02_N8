@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Root Menu for Cham Cong & Luong -->
+        <menuitem id="menu_cham_cong_luong_root"
+                  name="Chấm công &amp; Lương"
+                  sequence="10"/>
+
+        <!-- Menu Chấm công hàng ngày -->
+        <menuitem id="menu_hr_cham_cong"
+                  name="Chấm công hàng ngày"
+                  parent="menu_cham_cong_luong_root"
+                  action="action_hr_cham_cong"
+                  sequence="10"/>
+
+        <!-- Menu Cấu hình lương cơ bản -->
+        <menuitem id="menu_hr_luong_co_ban"
+                  name="Cấu hình lương cơ bản"
+                  parent="menu_cham_cong_luong_root"
+                  action="action_hr_luong_co_ban"
+                  sequence="20"/>
+
+        <!-- Menu Khen thưởng & Kỷ luật -->
+        <menuitem id="menu_hr_khen_thuong_ky_luat"
+                  name="Khen thưởng &amp; Kỷ luật"
+                  parent="menu_cham_cong_luong_root"
+                  action="action_hr_khen_thuong_ky_luat"
+                  sequence="30"/>
+
+        <!-- Menu Phiếu lương tháng -->
+        <menuitem id="menu_hr_phieu_luong"
+                  name="Phiếu lương tháng"
+                  parent="menu_cham_cong_luong_root"
+                  action="action_hr_phieu_luong"
+                  sequence="40"/>
+    </data>
+</odoo>
